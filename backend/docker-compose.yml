@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-go-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres-db
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_PORT: ${DB_PORT}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+
+  postgres-db:
+    image: postgres
+    container_name: my-postgres-db
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${DB_PORT}:5432"
+      
