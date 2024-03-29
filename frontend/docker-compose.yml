@@ -6,4 +6,4 @@ services :
      ports :
          - "3000:3000"
      environment:
-         - REACT_APP_SERVER_URL=http://34.230.42.245:8080/employees
+         - REACT_APP_SERVER_URL=http://18.212.51.137:8080/employees
