@@ -1,0 +1,9 @@
+version : "3.3"
+services :
+  frontend :
+     container_name : "frontend-app"
+     build : .
+     ports :
+         - "3000:3000"
+     environment:
+         - REACT_APP_SERVER_URL=http://3.87.94.185:8080/employees
